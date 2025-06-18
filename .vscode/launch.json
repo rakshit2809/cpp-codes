@@ -2,23 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Debug Session",
+      "name": "C/C++ Runner: Run Program in Terminal",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/rakshit/OneDrive/Desktop/cpp codes",
-      "program": "c:/Users/rakshit/OneDrive/Desktop/cpp codes/build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+      "externalConsole": true,  // Ensures output goes to the Terminal (not Debug Console)
+      "cwd": "${workspaceFolder}",  // Sets the current working directory to the workspace folder
+      "program": "${workspaceFolder}\\${fileBasenameNoExtension}.exe",  // Correct path to the executable
+      "MIMode": "gdb",  // You can remove this if you are not debugging
+      "miDebuggerPath": "gdb",  // You can remove this if you are not debugging
+      "setupCommands": [],
+      "preLaunchTask": "C/C++: g++.exe build active file",  // Ensure build task runs before launching
+      "internalConsoleOptions": "neverOpen",  // Prevent Debug Console from opening
+      "windows": {
+        "program": "${workspaceFolder}\\${fileBasenameNoExtension}.exe"  // Correct executable path for Windows
+      },
+      "osx": {
+        "program": "${workspaceFolder}/${fileBasenameNoExtension}"  // Correct for macOS
+      },
+      "linux": {
+        "program": "${workspaceFolder}/${fileBasenameNoExtension}"  // Correct for Linux
+      }
     }
   ]
 }

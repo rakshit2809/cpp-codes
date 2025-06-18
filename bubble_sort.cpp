@@ -7,12 +7,12 @@ void bubble_sort(int arr[], int n){
         for(int j=i;j<n-i-1;j++){
             if(arr[j]>arr[j+1]){
                 swap(arr[j+1],arr[j]);
-                flag=true;}
+                flag=true;} 
         }
         if(!flag){
             break;}
 
-    }
+    } 
     return;
 }
 
@@ -30,5 +30,5 @@ int main(){
         cout<<arr3[i]<<" ";
     }
     cout<<endl;
-    
+     return 0;
 }

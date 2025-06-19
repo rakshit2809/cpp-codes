@@ -60,6 +60,8 @@
     "deque": "cpp",
     "string": "cpp",
     "vector": "cpp",
-    "new": "cpp"
+    "new": "cpp",
+    "unordered_map": "cpp",
+    "array": "cpp"
   }
 }

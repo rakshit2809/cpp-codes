@@ -92,11 +92,12 @@ node<int>* take_input_levelwise( ){
         node<int>* p = q.front();
         q.pop();
         if(!p){
-            if(q.empty())
-            q.push(nullptr);
-            else
             cout<<endl;
+            if(!q.empty())
+            q.push(nullptr);
+        
         }
+        else{
         cout << p->data << " ";
         if(p->left){
             q.push(p->left);
@@ -104,13 +105,19 @@ node<int>* take_input_levelwise( ){
         if(p->right){
             q.push(p->right);
         }
-    }
+    }}
     return;
     }
 
-int main(){
-node<int> * ptr = take_input_levelwise();
-level_order_print_2(ptr);
+int main() {
+    node<int>* ptr = take_input_levelwise();
 
+    cout << "\n--- Level Order with Line Breaks ---\n";
+    level_order_print_2(ptr);
+
+    cout << "\n--- Flat Level Order (Single Line) ---\n";
+    level_order_print(ptr);
+
+    cout << endl;
     return 0;
 }

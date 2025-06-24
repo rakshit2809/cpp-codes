@@ -219,13 +219,14 @@ int diameter(node<int>* root){
         return false;
         if(root->data==key){
             v.insert(v.begin(), root->data);
-            return true;
+            return true;}
         if(getpath(root->left,key,v)||getpath(root->right,key,v)){
             v.insert(v.begin(), root->data);
             return true;
         }
+        return false;
         }
-    }
+    
 
 int main() {
    /*node<int>* ptr = take_input_levelwise();

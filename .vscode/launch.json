@@ -2,28 +2,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Run Program in Terminal",
+      "name": "C++ Debug in Terminal",
       "type": "cppdbg",
       "request": "launch",
+      "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,  // Ensures output goes to the Terminal (not Debug Console)
-      "cwd": "${workspaceFolder}",  // Sets the current working directory to the workspace folder
-      "program": "${workspaceFolder}\\${fileBasenameNoExtension}.exe",  // Correct path to the executable
-      "MIMode": "gdb",  // You can remove this if you are not debugging
-      "miDebuggerPath": "gdb",  // You can remove this if you are not debugging
-      "setupCommands": [],
-      "preLaunchTask": "C/C++: g++.exe build active file",  // Ensure build task runs before launching
-      "internalConsoleOptions": "neverOpen",  // Prevent Debug Console from opening
-      "windows": {
-        "program": "${workspaceFolder}\\${fileBasenameNoExtension}.exe"  // Correct executable path for Windows
-      },
-      "osx": {
-        "program": "${workspaceFolder}/${fileBasenameNoExtension}"  // Correct for macOS
-      },
-      "linux": {
-        "program": "${workspaceFolder}/${fileBasenameNoExtension}"  // Correct for Linux
-      }
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "preLaunchTask": "C/C++: g++.exe build active file",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb", 
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }

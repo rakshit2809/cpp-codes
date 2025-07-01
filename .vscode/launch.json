@@ -2,11 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Run Program in Terminal",
+      "name": "C++ Debug in Terminal",
       "type": "cppdbg",
       "request": "launch",
+      "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
       "args": [],
       "stopAtEntry": false,
+<<<<<<< HEAD
       "externalConsole": true,
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
@@ -43,6 +45,15 @@
           "ignoreFailures": true
         }
       ]
+=======
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "preLaunchTask": "C/C++: g++.exe build active file",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb", 
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+>>>>>>> c68b01a3998ee1867bbad4da5dfc1011b55403c4
     }
   ]
 }

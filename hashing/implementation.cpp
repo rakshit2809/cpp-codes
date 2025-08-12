@@ -14,7 +14,8 @@ public:
     }
     ~node(){
         delete next;
-    }
+    }363.
+    
 };
 template <typename t>
 class mymap{

@@ -44,6 +44,32 @@ public:
             return hashcode%numbucket;
         }
 
+        void rehash(){
+            node<t>** temp = buckets;
+            buckets = new node<t>* [2*numbucket];
+            for(int i=0;i<2*numbucket;i++){
+                buckets[i]=nullptr;
+            }
+            int oldsize = numbucket;
+            numbucket *=2;
+            count = 0;
+            
+            for(int i=0; i<oldsize;i++){
+                node<t>* head = temp[i];
+                while(head){
+                    string a = head->key;
+                    t b = head->value;
+                    insert(a,b);
+                    head=head->next;
+                }
+
+            }
+            for(int i=0;i<oldsize;i++){
+                delete temp[i];
+            }
+            delete [] temp;
+        }
+
         ~mymap(){
             for(int i=0;i<numbucket;i++){
                 delete buckets[i];
@@ -64,7 +90,7 @@ public:
             }
             head=head->next;
         }
-        return 0;
+        return t();
 
     }
     
@@ -84,6 +110,12 @@ public:
         n->next=buckets[bucketindex];
         buckets[bucketindex]=n;
         count++;
+
+        double loadfactor = (double)count/numbucket;
+        if(loadfactor>0.7){
+            rehash();
+        }
+
     }
 
     t remove (string key){
@@ -93,7 +125,7 @@ public:
         node<t> * prev = nullptr;
         while(head){
             if(head->key==key){
-                if(prev)
+                if(prev==nullptr)
                 buckets[bucketindex]=head->next;
                 else
                 prev->next = head->next;
@@ -104,11 +136,37 @@ public:
             count--;
             return V;
             }
-            return 0; // signifies the given key isnt present.  
+            return t(); // signifies the given key isnt present.  
+        }
+
+        double getloadfactor(){
+            return (1.0*count)/numbucket;
         }
 
     };
 
 int main(){ 
-    return 0;
+    mymap<int> ourmap;
+    for(int i=0;i<10;i++){
+        char c = '0' + i;
+        string key = "abc";
+        key = key + c;
+        int value = i + 1;
+        ourmap.insert(key,value);
+        cout<<ourmap.getloadfactor()<<endl;
+    }
+    cout<<ourmap.size()<<endl;
+
+    ourmap.remove("abc1");
+    ourmap.remove("abc6");
+
+    for(int i=0;i<10;i++){
+        char c = '0' + i;
+        string key = "abc";
+        key = key + c;
+        cout<<key<<" "<<ourmap.getvalue(key)<<endl;
+    }
+     cout<<ourmap.size()<<endl;
+  return 0;
+
 }

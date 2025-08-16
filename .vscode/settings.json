@@ -62,6 +62,7 @@
     "vector": "cpp",
     "new": "cpp",
     "unordered_map": "cpp",
-    "array": "cpp"
+    "array": "cpp",
+    "numeric": "cpp"
   }
 }
